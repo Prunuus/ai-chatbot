@@ -1,6 +1,4 @@
 'use client'
-import { Content } from "next/font/google";
-import Image from "next/image";
 import { useState } from "react";
 import {Box, Stack, TextField, Button} from '@mui/material'
 

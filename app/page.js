@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import {Box, Stack, TextField, Button, Avatar} from '@mui/material'
 import PetsIcon from '@mui/icons-material/Pets';
 import PersonIcon from '@mui/icons-material/Person';
@@ -9,9 +9,8 @@ export default function Home() {
     role:'assistant',
     content: `*woof* Hi there! I am Reveille! I am a proud aggie of Texas A&M. Lets talk! 🐕`,
   }])
-
+  const ref = useRef(null)
   const [message, setMessage] = useState('')
-
   const sendMessage = async () => {
 
     setMessage('')
@@ -51,6 +50,12 @@ export default function Home() {
         })
     })
 }
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.scrollIntoView()
+    }
+
+  }, [messages])
 
   const keyPress = (e) => {
     if (e.keyCode == 13) {
@@ -68,19 +73,21 @@ export default function Home() {
     justifyContent="center">
       <Stack
       direction = 'column'
-      width="70vw"
-      height="90vh"
+      width="90vw"
+      height="95vh"
       border='1px solid black'
       p={2}
       spacing={3}
       backgroundColor="#3C0000"
-      borderRadius={"25px"}>
+      borderRadius={"25px"}
+      >
         <Stack
         direction="column"
         spacing={2}
         flexGrow={1}
         overflow="auto"
         maxHeight="100%"
+        sx={{overflowY:"auto"}}
         >
           {
             messages.map((message, index) => (
@@ -130,7 +137,7 @@ export default function Home() {
 
               </Box>
             ))}
-
+        <div ref={ref}></div>
         </Stack>
         <Stack direction ='row' spacing={2}>
           {message === '' ?
@@ -160,6 +167,7 @@ export default function Home() {
         }
           <Button variant = 'contained' sx={{borderRadius:"5px"}} onClick={sendMessage}>Send</Button>
         </Stack>
+        {/* <div ref={ref}></div> */}
       </Stack>
     </Box>
   )

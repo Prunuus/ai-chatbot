@@ -103,9 +103,9 @@ export default function Home() {
               <Box bgcolor={
                 message.role === 'assistant' ? '#8a2c2c' : '#732F2f'
               }
-              height={"50px"}
+              padding={"10px"}
               color="white"
-              borderRadius={16}
+              borderRadius={8}
               p={3}
               display={'flex'}
               justifyContent={"center"}
@@ -119,7 +119,6 @@ export default function Home() {
               <Box bgcolor={
                 message.role === 'assistant' ? '#8a2c2c' : '#732F2f'
               }
-              height={"50px"}
               color="white"
               borderRadius={16}
               p={3}

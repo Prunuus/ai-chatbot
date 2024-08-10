@@ -3,10 +3,6 @@ import { useState } from "react";
 import {Box, Stack, TextField, Button, Avatar} from '@mui/material'
 import PetsIcon from '@mui/icons-material/Pets';
 import PersonIcon from '@mui/icons-material/Person';
-// import reveille from "./public/reveille.jpg"
-import reveille from "./public/dog.jpg"
-import cover from "./public/user_icon.png"
-import { Person } from "@mui/icons-material";
 
 export default function Home() {
   const [messages, setMessages] = useState([{
